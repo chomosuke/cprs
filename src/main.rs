@@ -15,6 +15,12 @@ mod indexed_vec;
 mod math;
 mod knapsack;
 
+use io::*;
+
 fn main() {
-    println!("Hello, world!");
+    let mut sc = Scanner::new(stdin());
+    let mut pt = Printer::new(stdout());
+    let line = sc.next_line();
+    pt.print("You typed: ");
+    pt.println(&line);
 }
