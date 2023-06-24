@@ -92,6 +92,8 @@ impl<R: Read> Scanner<R> {
     }
 }
 
+/// Buffered printer, usually won't print out anything until right before the
+/// program terminate. Not meant for interactive use.
 pub struct Printer<W: Write> {
     writer: BufWriter<W>,
 }
