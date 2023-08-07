@@ -104,7 +104,7 @@ impl<W: Write> Printer<W> {
         }
     }
 
-    pub fn print(&mut self, s: &(impl Display + ?Sized)) {
+    pub fn print(&mut self, s: impl Display) {
         self.writer
             .write_all(s.to_string().as_bytes())
             .expect("print failed.");
@@ -114,7 +114,7 @@ impl<W: Write> Printer<W> {
         self.writer.write_all(b).expect("print_bytes failed.");
     }
 
-    pub fn println(&mut self, s: &(impl Display + ?Sized)) {
+    pub fn println(&mut self, s: impl Display) {
         self.print(s);
         self.newline();
     }
