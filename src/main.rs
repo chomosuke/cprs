@@ -14,6 +14,7 @@ mod graph;
 mod indexed_vec;
 mod math;
 mod knapsack;
+mod sort;
 
 use io::*;
 
