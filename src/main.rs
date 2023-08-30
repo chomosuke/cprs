@@ -18,9 +18,23 @@ mod knapsack;
 use io::*;
 
 fn main() {
+    demo_next_line()
+}
+
+fn demo_next_line() {
     let mut sc = Scanner::new(stdin());
     let mut pt = Printer::new(stdout());
     let line = sc.next_line();
     pt.print("You typed: ");
     pt.println(&line);
+}
+
+fn demo_next_i32() {
+    let mut sc = Scanner::new(stdin());
+    let mut pt = Printer::new(stdout());
+    let x1 = sc.next::<i32>();
+    let x2 = sc.next::<i32>();
+    pt.print("You typed: ");
+    pt.println(&x1);
+    pt.println(&x2);
 }
