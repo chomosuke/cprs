@@ -78,7 +78,7 @@ impl<R: Read> Scanner<R> {
             .expect("next_line failed.")
     }
 
-    pub fn is_empty(&mut self) -> bool {
+    pub fn at_line_start(&mut self) -> bool {
         self.tokens.is_empty()
     }
 
