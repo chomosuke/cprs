@@ -36,6 +36,6 @@ fn demo_next_i32() {
     let x1 = sc.next::<i32>();
     let x2 = sc.next::<i32>();
     pt.print("You typed: ");
-    pt.println(&x1);
-    pt.println(&x2);
+    pt.println(x1);
+    pt.println(x2);
 }
