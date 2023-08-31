@@ -53,9 +53,13 @@ impl<R: Read> Scanner<R> {
             }
             self.receive_input();
         };
-        token
-            .parse::<T>()
-            .unwrap_or_else(|_| panic!("input {} isn't a {}", token, type_name::<T>()))
+        token.parse::<T>().unwrap_or_else(|_| {
+            panic!(
+                "Cannot convert input to type {}: {}",
+                type_name::<T>(),
+                token
+            )
+        })
     }
 
     pub fn next_n<T: FromStr>(&mut self, n: usize) -> ScannerIter<'_, R, T> {
@@ -67,11 +71,15 @@ impl<R: Read> Scanner<R> {
     }
 
     pub fn next_line(&mut self) -> String {
-        assert!(self.tokens.is_empty(), "You have unprocessed token");
+        assert!(self.tokens.is_empty(), "You have unprocessed token(s)");
         self.lines
             .next()
             .and_then(|e| e.ok())
-            .expect("Failed to read.")
+            .expect("next_line failed.")
+    }
+
+    pub fn at_line_start(&mut self) -> bool {
+        self.tokens.is_empty()
     }
 
     fn receive_input(&mut self) {
@@ -79,7 +87,7 @@ impl<R: Read> Scanner<R> {
             .lines
             .next()
             .and_then(|e| e.ok())
-            .expect("Failed to read.");
+            .expect("receive_input failed.");
         if let Some(delimiters) = &self.delimiters {
             for token in line.split(|c| delimiters.contains(&c)) {
                 self.tokens.push_back(token.to_string());
