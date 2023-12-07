@@ -71,11 +71,14 @@ impl<R: Read> Scanner<R> {
     }
 
     pub fn next_line(&mut self) -> String {
+        self.try_next_line().expect("next_line failed.")
+    }
+
+    pub fn try_next_line(&mut self) -> Option<String> {
         assert!(self.tokens.is_empty(), "You have unprocessed token(s)");
         self.lines
             .next()
             .and_then(|e| e.ok())
-            .expect("next_line failed.")
     }
 
     pub fn at_line_start(&mut self) -> bool {
