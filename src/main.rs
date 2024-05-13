@@ -7,13 +7,10 @@ use std::{
     mem,
 };
 
+mod bag;
 mod io;
-mod binary_searchable;
-mod multi_set;
-mod graph;
-mod indexed_vec;
-mod math;
 mod knapsack;
+mod multi_set;
 mod sort;
 
 use io::*;
@@ -37,7 +34,7 @@ fn demo_next_i32() {
     let x2 = sc.next::<i32>();
     if !sc.at_line_start() {
         pt.println("Unexpected input. Expected format: <i32> <i32>");
-        return
+        return;
     }
 
     pt.println("You typed: ");
