@@ -8,6 +8,7 @@ use std::{
 };
 
 mod bag;
+mod math;
 mod io;
 mod knapsack;
 mod multi_set;
