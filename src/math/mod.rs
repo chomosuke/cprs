@@ -1,2 +1,1 @@
-mod fibonacci;
-mod pow;
+mod binary_exponentiation;

@@ -20,6 +20,8 @@ fn mat_pow(m: &Vec<Vec<I>>, n: usize) -> Vec<Vec<I>> {
             mr[i][i] = 1;
         }
         mr
+    } else if n == 1 {
+        m.clone()
     } else if n % 2 == 0 {
         let m2 = mat_pow(m, n / 2);
         mat_multi(&m2, &m2)

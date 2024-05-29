@@ -1,5 +1,6 @@
-/// O(log(n))
-fn pow(x: i128, n: i128, m: i128) -> i128 {
+type I = i128;
+
+fn pow(x: I, n: I, m: I) -> I {
     let x = x.rem_euclid(m);
     if n == 0 {
         1
