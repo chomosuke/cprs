@@ -8,11 +8,12 @@ use std::{
 };
 
 mod bag;
-mod math;
 mod io;
 mod knapsack;
+mod math;
 mod multi_set;
 mod sort;
+mod tree;
 
 use io::*;
 
