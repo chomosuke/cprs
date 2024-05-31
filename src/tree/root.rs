@@ -13,14 +13,17 @@ pub fn root_tree(adj_nodes: &Vec<Vec<usize>>, root: usize) -> RootedTree {
         .iter()
         .map(|&n| (root, n))
         .collect::<Vec<_>>();
+    let mut visited = vec![false; adj_nodes.len()];
     while let Some((parent, node)) = to_visit.pop() {
+        assert!(!visited[node], "There's a cycle in your tree");
+        visited[node] = true;
         parents[node] = Some(parent);
         childrens[parent].push(node);
         to_visit.extend(adj_nodes[node].iter().filter_map(|&n| {
             if n == parent {
                 None
             } else {
-                Some((parent, node))
+                Some((node, n))
             }
         }));
     }
