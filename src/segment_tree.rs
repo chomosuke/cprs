@@ -156,13 +156,6 @@ impl<E: Clone, F: Fn(&E, &E) -> E> SegmentTree<E, F> {
     }
 }
 
-impl<E, F> Index<usize> for SegmentTree<E, F> {
-    type Output = E;
-    fn index(&self, index: usize) -> &Self::Output {
-        &self.inner[index]
-    }
-}
-
 #[cfg(test)]
 mod test {
     use super::SegmentTree;
