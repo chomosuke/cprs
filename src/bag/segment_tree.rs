@@ -14,21 +14,21 @@ fn pow2_ceil(x: usize) -> usize {
     2usize.pow(n)
 }
 
-pub struct IndexedVec<E, F> {
+pub struct SegmentTree<E, F> {
     combine: F,
     inner: Vec<E>,
     tree: Vec<E>,
     inner_cap: usize,
     zero: E,
 }
-impl<E, F> Deref for IndexedVec<E, F> {
+impl<E, F> Deref for SegmentTree<E, F> {
     type Target = Vec<E>;
 
     fn deref(&self) -> &Self::Target {
         &self.inner
     }
 }
-impl<E: Clone, F: Fn(&E, &E) -> E> IndexedVec<E, F> {
+impl<E: Clone, F: Fn(&E, &E) -> E> SegmentTree<E, F> {
     fn parent(i: usize) -> usize {
         i / 2
     }
@@ -158,11 +158,11 @@ impl<E: Clone, F: Fn(&E, &E) -> E> IndexedVec<E, F> {
 
 #[cfg(test)]
 mod test {
-    use super::IndexedVec;
+    use super::SegmentTree;
 
     #[test]
     fn test() {
-        let mut iv = IndexedVec::from_vec(vec![1, 3, 4, 8, 6, 1, 4, 2], std::i32::MAX, |a, b| {
+        let mut iv = SegmentTree::from_vec(vec![1, 3, 4, 8, 6, 1, 4, 2], std::i32::MAX, |a, b| {
             if a < b {
                 *a
             } else {

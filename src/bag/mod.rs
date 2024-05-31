@@ -1,5 +1,5 @@
 mod binary_searchable;
 mod graph;
-mod indexed_vec;
+mod segment_tree;
 mod math;
 
