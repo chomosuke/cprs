@@ -1,4 +1,4 @@
-use std::ops::Bound::*;
+use std::ops::{Bound::*, Index, IndexMut};
 use std::ops::{Deref, RangeBounds};
 
 const USIZE_BITS: u32 = 64;
@@ -153,6 +153,13 @@ impl<E: Clone, F: Fn(&E, &E) -> E> SegmentTree<E, F> {
     pub fn set(&mut self, i: usize, e: E) {
         self.inner[i] = e;
         self.update(i);
+    }
+}
+
+impl<E, F> Index<usize> for SegmentTree<E, F> {
+    type Output = E;
+    fn index(&self, index: usize) -> &Self::Output {
+        &self.inner[index]
     }
 }
 

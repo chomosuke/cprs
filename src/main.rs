@@ -14,6 +14,7 @@ mod math;
 mod multi_set;
 mod sort;
 mod tree;
+mod segment_tree;
 
 use io::*;
 
