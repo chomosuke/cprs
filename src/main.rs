@@ -15,6 +15,7 @@ mod multi_set;
 mod sort;
 mod tree;
 mod segment_tree;
+mod string;
 
 use io::*;
 
