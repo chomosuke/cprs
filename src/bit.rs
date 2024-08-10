@@ -4,6 +4,10 @@ fn get_nth_bit(a: N, n: usize) -> bool {
     (a >> n) % 2 == 1
 }
 
-fn set_nth_bit(a: &mut N, n: usize) {
-    *a = *a & (1 << n)
+fn set_nth_bit(a: &mut N, n: usize, one: bool) {
+    if one {
+        *a = *a | (1 << n)
+    } else {
+        *a = *a & !(1 << n)
+    }
 }

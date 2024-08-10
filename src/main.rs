@@ -8,14 +8,16 @@ use std::{
 };
 
 mod bag;
+mod bit;
 mod io;
 mod knapsack;
 mod math;
 mod multi_set;
-mod sort;
-mod tree;
 mod segment_tree;
+mod sort;
 mod string;
+mod tree;
+mod binary_search;
 
 use io::*;
 
