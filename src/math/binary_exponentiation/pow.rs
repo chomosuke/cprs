@@ -10,3 +10,8 @@ fn pow(x: I, n: I, m: I) -> I {
         (pow(x, n - 1, m) * x).rem_euclid(m)
     }
 }
+
+#[test]
+fn test() {
+    assert_eq!(1024 % 57, pow(2, 10, 57));
+}

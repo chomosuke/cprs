@@ -14,3 +14,8 @@ fn apply_n<I: Copy>(x: I, n: usize, f: &impl Fn(I, I) -> I) -> I {
         f(apply_n(x, n - 1, f), x)
     }
 }
+
+#[test]
+fn test() {
+    assert_eq!(30, apply_n(1, 30, &|a, b| { a + b }));
+}
