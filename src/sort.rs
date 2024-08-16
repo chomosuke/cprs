@@ -48,7 +48,7 @@ where
 {
     let mut s = slice.as_mut_ptr();
 
-    let mut v1 = unsafe { fill_into_vec(&slice, mid) };
+    let mut v1 = unsafe { fill_into_vec(slice, mid) };
 
     let mut s1 = v1.as_ptr();
 

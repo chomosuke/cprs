@@ -1,4 +1,4 @@
-#![allow(unused_imports, dead_code, clippy::needless_range_loop, unused_labels)]
+#![allow(unused_imports, dead_code, clippy::needless_range_loop, unused_labels, clippy::ptr_arg)]
 use std::{
     cmp::{max, min, Ordering},
     collections::{BTreeMap, BTreeSet, HashMap, HashSet, VecDeque},

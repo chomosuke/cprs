@@ -1,5 +1,5 @@
 fn common_prefix_suffix_len<T: Eq>(s: &[T]) -> Vec<usize> {
-    if s.len() == 0 {
+    if s.is_empty() {
         return Vec::new();
     }
     let mut f = Vec::with_capacity(s.len());

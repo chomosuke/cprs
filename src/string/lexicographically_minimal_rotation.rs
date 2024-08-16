@@ -24,12 +24,12 @@ impl<'a, T> Index<usize> for Rotatable<'a, T> {
     }
 }
 
-fn lexicographically_minimal_rotation<'a, T>(ts: &'a [T]) -> Rotatable<'a, T>
+fn lexicographically_minimal_rotation<T>(ts: &[T]) -> Rotatable<'_, T>
 where
     T: PartialOrd,
 {
     let mut rotated = Rotatable::new(ts);
-    if ts.len() == 0 {
+    if ts.is_empty() {
         return rotated;
     }
 
