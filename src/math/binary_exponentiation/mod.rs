@@ -2,20 +2,24 @@ mod fibonacci;
 mod permutate;
 mod pow;
 
-fn apply_n<I: Copy>(x: I, n: usize, f: &impl Fn(I, I) -> I) -> I {
+fn apply_n<E: Clone>(x: &E, n: usize, f: &impl Fn(&E, &E) -> E) -> E {
     if n == 0 {
         panic!("This function does not have an Id element.");
     } else if n == 1 {
-        x
+        x.clone()
     } else if n % 2 == 0 {
-        let x = apply_n(x, n / 2, f);
-        f(x, x)
+        if n / 2 == 1 {
+            f(x, x)
+        } else {
+            let x = apply_n(x, n / 2, f);
+            f(&x, &x)
+        }
     } else {
-        f(apply_n(x, n - 1, f), x)
+        f(&apply_n(x, n - 1, f), x)
     }
 }
 
 #[test]
 fn test() {
-    assert_eq!(30, apply_n(1, 30, &|a, b| { a + b }));
+    assert_eq!(30, apply_n(&1, 30, &|a, b| { a + b }));
 }
