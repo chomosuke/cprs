@@ -2,7 +2,9 @@ mod fibonacci;
 mod permutate;
 mod pow;
 
-fn apply_n<E: Clone>(x: &E, n: usize, f: &impl Fn(&E, &E) -> E) -> E {
+type U = u128;
+
+fn apply_n<E: Clone>(x: &E, n: U, f: &impl Fn(&E, &E) -> E) -> E {
     if n == 0 {
         panic!("This function does not have an Id element.");
     } else if n == 1 {

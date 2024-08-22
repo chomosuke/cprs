@@ -1,6 +1,6 @@
-type I = u128;
+type Int = u128;
 
-fn mat_multi(m1: &Vec<Vec<I>>, m2: &Vec<Vec<I>>) -> Vec<Vec<I>> {
+fn mat_multi(m1: &Vec<Vec<Int>>, m2: &Vec<Vec<Int>>) -> Vec<Vec<Int>> {
     let mut mr = vec![vec![0; m2[0].len()]; m1.len()];
     assert_eq!(m1[0].len(), m2.len());
     for i in 0..m1.len() {
@@ -13,7 +13,7 @@ fn mat_multi(m1: &Vec<Vec<I>>, m2: &Vec<Vec<I>>) -> Vec<Vec<I>> {
     mr
 }
 
-fn mat_pow(m: &Vec<Vec<I>>, n: usize) -> Vec<Vec<I>> {
+fn mat_pow(m: &Vec<Vec<Int>>, n: Int) -> Vec<Vec<Int>> {
     if n == 0 {
         let mut mr = vec![vec![0; m.len()]; m.len()];
         for i in 0..m.len() {
@@ -30,7 +30,7 @@ fn mat_pow(m: &Vec<Vec<I>>, n: usize) -> Vec<Vec<I>> {
     }
 }
 
-fn fibonacci(n: usize) -> I {
+fn fibonacci(n: Int) -> Int {
     let v = vec![vec![0], vec![1]];
     let f = vec![vec![0, 1], vec![1, 1]];
     let f_n = mat_pow(&f, n);
@@ -44,6 +44,6 @@ fn test_fibonacci() {
         0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181,
     ];
     for (i, f) in fibs.into_iter().enumerate() {
-        assert_eq!(f, fibonacci(i), "{i}");
+        assert_eq!(f, fibonacci(i as Int), "{i}");
     }
 }
