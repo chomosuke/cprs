@@ -14,6 +14,7 @@ mod io;
 mod knapsack;
 mod math;
 mod multi_set;
+mod multi_set_sorted;
 mod segment_tree;
 mod sort;
 mod string;
