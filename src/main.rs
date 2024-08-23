@@ -12,7 +12,7 @@ mod binary_search;
 mod bit;
 mod io;
 mod knapsack;
-mod math;
+mod algebra;
 mod multi_set;
 mod segment_tree;
 mod sort;
