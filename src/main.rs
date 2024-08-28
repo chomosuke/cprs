@@ -1,4 +1,10 @@
-#![allow(unused_imports, dead_code, clippy::needless_range_loop, unused_labels, clippy::ptr_arg)]
+#![allow(
+    unused_imports,
+    dead_code,
+    clippy::needless_range_loop,
+    unused_labels,
+    clippy::ptr_arg
+)]
 use std::{
     cmp::{max, min, Ordering},
     collections::{BTreeMap, BTreeSet, HashMap, HashSet, VecDeque},
@@ -7,12 +13,12 @@ use std::{
     mem,
 };
 
+mod algebra;
 mod bag;
 mod binary_search;
 mod bit;
 mod io;
 mod knapsack;
-mod algebra;
 mod multi_set;
 mod segment_tree;
 mod sort;

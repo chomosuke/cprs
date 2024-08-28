@@ -52,11 +52,13 @@ fn find_linear_comb(a: Int, b: Int) -> (Int, Int, Int) {
 fn test() {
     assert_eq!(get_gcd(12, 18), 6);
 
-    let (a, b) = (79, 33);
-    let (gcd, x, y) = find_linear_comb_2(a, b);
-    assert_eq!(x * a + y * b, gcd);
-    assert_eq!(gcd, get_gcd(a, b));
+    let abs = [(77, 33, ), (77, -33), (-77, 33), (-77, -33)];
+    for (a, b) in abs {
+        let (gcd, x, y) = find_linear_comb_2(a, b);
+        assert_eq!(x * a + y * b, gcd);
+        assert_eq!(gcd, get_gcd(a, b));
 
-    let (gcd2, x2, y2) = find_linear_comb(a, b);
-    assert_eq!((gcd, x, y), (gcd2, x2, y2));
+        let (gcd2, x2, y2) = find_linear_comb(a, b);
+        assert_eq!((gcd, x, y), (gcd2, x2, y2));
+    }
 }
