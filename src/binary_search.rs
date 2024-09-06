@@ -1,6 +1,6 @@
 type U = u64;
 
-/// Will look for first i such that p(i) == false.
+/// Will look for last i such that p(i) == true.
 fn search(start: U, step: U, p: impl Fn(U) -> bool) -> U {
     assert!(p(start));
     let mut index = start;
@@ -12,5 +12,5 @@ fn search(start: U, step: U, p: impl Fn(U) -> bool) -> U {
             step /= 2;
         }
     }
-    index + 1
+    index
 }
