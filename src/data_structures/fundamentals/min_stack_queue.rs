@@ -94,11 +94,55 @@ mod min_stack {
             let vec: &Vec<_> = &self.0;
             vec.last().map(|Elem { min_below, .. }| &**min_below)
         }
+
+        pub fn is_empty(&self) -> bool {
+            self.0.is_empty()
+        }
     }
 }
 
 mod min_queue_stacked {
+    use super::min_stack::*;
     use std::cmp::Ord;
+
+    pub struct MinQueue<T> {
+        stack1: MinStack<T>,
+        stack2: MinStack<T>,
+    }
+    impl<T: Ord> MinQueue<T> {
+        pub fn new() -> Self {
+            Self {
+                stack1: MinStack::new(),
+                stack2: MinStack::new(),
+            }
+        }
+
+        pub fn push(&mut self, value: T) {
+            self.stack1.push(value);
+        }
+
+        pub fn pop(&mut self) -> Option<T> {
+            let Self { stack1, stack2 } = self;
+
+            if stack2.is_empty() {
+                while let Some(v) = stack1.pop() {
+                    stack2.push(v);
+                }
+            }
+
+            stack2.pop()
+        }
+
+        pub fn min(&self) -> Option<&T> {
+            let Self { stack1, stack2 } = self;
+
+            match (stack1.min(), stack2.min()) {
+                (Some(min1), Some(min2)) => Some(min1.min(min2)),
+                (Some(min), None) | (None, Some(min)) => Some(min),
+                (None, None) => None,
+            }
+        }
+    }
 }
 
 mod min_queue_linked {}
