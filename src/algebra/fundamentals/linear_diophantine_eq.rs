@@ -1,5 +1,23 @@
 use std::{cmp::Ordering, ops::Range};
 
+/*
+ * a linear diophantine equation is an equation of the general form:
+ * ax + by = c
+ *
+ * where everything is an integer.
+ *
+ * We can find 1 equation, find all solutions, find the number of solutions and the solutions
+ * themselves in a given interval.
+ * Find the solution with the minimum value of X + y
+ *
+ * wow, this shit is pretty cool, I've got to understand it now.
+ * I think if I just....
+ *
+ * actually, let's skip the boring prime number things and just skip forward, I think I'll strugle
+ * a lot more doing number theory than I will doing other random algorithms, like actual
+ * algorithms. I can do number theory last.
+ */
+
 type Int = i128;
 
 fn find_linear_comb(a: Int, b: Int) -> (Int, Int, Int) {
