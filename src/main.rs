@@ -17,6 +17,7 @@ mod algebra;
 mod bag;
 mod binary_search;
 mod bit;
+mod data_structures;
 mod io;
 mod knapsack;
 mod multi_set;

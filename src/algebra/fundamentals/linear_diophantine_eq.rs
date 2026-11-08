@@ -1,5 +1,17 @@
 use std::{cmp::Ordering, ops::Range};
 
+/*
+ * a linear diophantine equation is an equation of the general form:
+ * ax + by = c
+ *
+ * where everything is an integer.
+ *
+ * We can find 1 equation, find all solutions, find the number of solutions and the solutions
+ * themselves in a given interval.
+ * Find the solution with the minimum value of X + y
+ *
+ */
+
 type Int = i128;
 
 fn find_linear_comb(a: Int, b: Int) -> (Int, Int, Int) {
