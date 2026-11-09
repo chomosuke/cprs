@@ -25,6 +25,7 @@ mod segment_tree;
 mod sort;
 mod string;
 mod tree;
+mod utils;
 
 use io::*;
 

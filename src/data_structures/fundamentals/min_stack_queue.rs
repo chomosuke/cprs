@@ -145,4 +145,13 @@ mod min_queue_stacked {
     }
 }
 
-mod min_queue_linked {}
+mod min_queue_linked {
+
+    use crate::utils::addressable_vec_deque::*;
+    use std::cmp::Ord;
+
+    pub struct MinQueue<T> {
+        queue: AddressableVecDeque<T>,
+    }
+    impl<T: Ord> MinQueue<T> {}
+}
